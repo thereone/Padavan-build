@@ -35,7 +35,7 @@ jobs:
         KERNEL: 4.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
-        git clone --depth=1 https://github.com/MeIsReallyBa/padavan-4.4.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/thereone/padavan-4.4.git /opt/rt-n56u
         else
         git clone --depth=1 https://github.com/thereone/rt-n56u.git /opt/rt-n56u
         fi
@@ -44,7 +44,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: NEWIFI
+        TNAME: K2P
         KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -87,7 +87,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #阿里云盘  ~3m
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
-        echo "CONFIG_FIRMWARE_INCLUDE_ANTFS=y" >> .config #支持antfs
+        echo "CONFIG_FIRMWARE_INCLUDE_ANTFS=n" >> .config #支持antfs
         else
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config #SS plus+
         echo "CONFIG_FIRMWARE_INCLUDE_SSOBFS=n" >> .config # simple-obfs混淆插件
